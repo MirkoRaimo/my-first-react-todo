@@ -4,7 +4,7 @@ import { MaterialCard } from "./components/MaterialCard";
 import "./App.css";
 
 function App() {
-  const [todos, setTodos] = useState(['first stuff todo']);
+  const [todos, setTodos] = useState(['First fancy stuff todo']);
   const [input, setInput] = useState('');
 
   const addTodo = (event) => {
@@ -14,7 +14,7 @@ function App() {
   }
 
   const removeTodo = (index) => {
-    console.log("I'm removing a todo!")
+    console.log(`Removing the todo having index! ${index}`)
     todos.splice(index, 1);
     setTodos([...todos]);
   }
