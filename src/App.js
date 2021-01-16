@@ -13,6 +13,12 @@ function App() {
     setInput('');
   }
 
+  const removeTodo = (index) => {
+    console.log("I'm removing a todo!")
+    todos.splice(index, 1);
+    setTodos([...todos]);
+  }
+
   return (
     <div className="App">
       <>
@@ -32,7 +38,7 @@ function App() {
           <Grid item xs={12} ></Grid>
           {todos.map((todo, index) => { 
             const rndColor = Math.floor(Math.random()*16777215).toString(16);
-            return <MaterialCard key={index} index={index} content={todo} rndColor={rndColor}/>
+            return <MaterialCard key={index} index={index} content={todo} rndColor={rndColor} removeTodo={() => removeTodo(index)}/>
           })}
         </Grid>
 

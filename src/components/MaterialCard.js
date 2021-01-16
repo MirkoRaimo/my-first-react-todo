@@ -42,6 +42,7 @@ export function MaterialCard(props) {
       </CardContent>
       <CardActions>
         <Button size="small" onClick={() => setIsCompleted(!isCompleted)}>Mark as completed</Button>
+        <Button size="small" onClick={() => props.removeTodo(props.index)}>Remove todo</Button>
       </CardActions>
     </Card>
   );
