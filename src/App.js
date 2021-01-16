@@ -16,11 +16,10 @@ function App() {
     <div className="App">
       <>
         {/* Input */}
-        <p>Hello Mirko!</p>
+        <p>Hello form Mirko!</p>
         <form>
           <label>
-            Nome:
-            <input type="text" name="nome" value={input} onChange={event => setInput(event.target.value)}/>
+            <input type="text" placeholder={"Something new to do?"} value={input} onChange={event => setInput(event.target.value)}/>
           </label>
           <button type="submit" onClick={addTodo}>Add todo</button>
         </form>
