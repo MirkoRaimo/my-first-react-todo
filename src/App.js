@@ -1,4 +1,6 @@
+import { Button, Grid, TextField } from "@material-ui/core";
 import { useState } from "react";
+import { MaterialCard } from "./components/MaterialCard";
 import "./App.css";
 
 function App() {
@@ -9,7 +11,6 @@ function App() {
     event.preventDefault();
     setTodos([...todos, input])
     setInput('');
-    
   }
 
   return (
@@ -19,20 +20,24 @@ function App() {
         <p>Hello form Mirko!</p>
         <form>
           <label>
-            <input type="text" placeholder={"Something new to do?"} value={input} onChange={event => setInput(event.target.value)}/>
+            <TextField label="Something new to do?" type="text" value={input} onChange={event => setInput(event.target.value)}/>
           </label>
-          <button type="submit" onClick={addTodo}>Add todo</button>
+          <Button type="submit" variant="outlined" color='primary' disabled={!input} onClick={addTodo}>Add todo</Button>
         </form>
       </>
 
       <>
         {/* List of todos */}
-        <ul>
-          {todos.map(todo => (
-            <li>{todo}</li>
-          ))}
-        </ul>
+        <Grid container spacing={3} justify="center">
+          <Grid item xs={12} ></Grid>
+          {todos.map((todo, index) => { 
+            const rndColor = Math.floor(Math.random()*16777215).toString(16);
+            return <MaterialCard key={index} index={index} content={todo} rndColor={rndColor}/>
+          })}
+        </Grid>
+
       </>
+      
     </div>
   );
 }
